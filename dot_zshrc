@@ -151,6 +151,7 @@ zinit light-mode for \
     zsh-users/zsh-completions
 
 zinit load atuinsh/atuin
+
 ### End of Zinit's installer chunk
 
 ### Path
@@ -174,3 +175,4 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+alias vim=nvim
