@@ -16,15 +16,23 @@ end
 lspconfig.tsserver.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-  init_options = {
-    preferences = {
-      disableSuggestions = true
-    }
-  },
   commands = {
     OrganizeImports = {
       organize_imports,
       description = "Organize Imports"
+    }
+  },
+  settings = {
+    typescript = {
+      inlayHints = {
+        includeInlayParameterNameHints = "literal",
+        incluteInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      }
     }
   }
 })
