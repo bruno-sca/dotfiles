@@ -100,7 +100,7 @@ local plugins = {
       ensure_installed = {
         "eslint-lsp",
         "js-debug-adapter",
-        "prettierd",
+        "prettier",
         "tailwindcss-language-server",
         "typescript-language-server",
         "html-lsp",

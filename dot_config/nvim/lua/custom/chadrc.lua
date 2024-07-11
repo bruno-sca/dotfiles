@@ -3,7 +3,7 @@ require("custom.options")
 ---@type ChadrcConfig
 local M = {}
 
-M.ui = { theme = 'chadracula' }
+M.ui = { theme = 'gruvchad' }
 M.plugins = "custom.plugins"
 M.mappings = require("custom.mappings")
 

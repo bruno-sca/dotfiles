@@ -54,7 +54,7 @@ lspconfig.gopls.setup({
   }
 })
 
-local servers = { "html", "cssls", "tailwindcss", "eslint"}
+local servers = { "html", "cssls", "tailwindcss", "eslint" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({
