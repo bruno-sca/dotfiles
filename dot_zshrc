@@ -148,7 +148,8 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust \
     zdharma-continuum/fast-syntax-highlighting \
     zsh-users/zsh-autosuggestions \
-    zsh-users/zsh-completions
+    zsh-users/zsh-completions \
+    spaceship-prompt/spaceship-prompt
 
 zinit load atuinsh/atuin
 
@@ -176,3 +177,5 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 alias vim=nvim
+eval "$(atuin init zsh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
