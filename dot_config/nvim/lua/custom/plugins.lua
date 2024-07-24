@@ -38,7 +38,6 @@ local plugins = {
     opts = {},
   },
 
-  -- GOLANG
   {
     "rcarriga/nvim-dap-ui",
     "nvim-neotest/nvim-nio",
@@ -67,6 +66,20 @@ local plugins = {
     end
   },
   {
+    "mfussenegger/nvim-dap-python",
+    ft = "python",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui"
+    },
+    config = function()
+      local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+      require("dap-python").setup(path)
+      require("core.utils").load_mappings("dap_python")
+    end,
+  },
+  -- GOLANG
+  {
     "leoluz/nvim-dap-go",
     ft = "go",
     dependencies = "mfussenegger/nvim-dap",
@@ -89,7 +102,9 @@ local plugins = {
   -- END GOLANG
   {
     "nvimtools/none-ls.nvim",
-    event = "VeryLazy",
+    dependencies = {
+      "nvimtools/none-ls-extras.nvim",
+    },
     opts = function ()
         return require("custom.configs.null-ls")
     end
@@ -98,22 +113,36 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        -- ts
         "eslint-lsp",
+        "eslint_d",
         "js-debug-adapter",
         "prettier",
         "tailwindcss-language-server",
         "typescript-language-server",
         "html-lsp",
         "css-lsp",
+        -- end ts
+        -- lua
         "lua-language-server",
         "stylua",
+        -- end lua
+        -- go
         "gopls",
         "goimports",
         "gofumpt",
         "golines",
         "delve",
+        -- end go
+        -- python
+        "black",
+        "debugpy",
+        "mypy",
+        "ruff",
+        "pyright"
+        -- end python
       }
-    }
+      }
   },
   {
     "neovim/nvim-lspconfig",

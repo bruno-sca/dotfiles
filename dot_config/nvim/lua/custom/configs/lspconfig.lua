@@ -16,6 +16,7 @@ end
 lspconfig.tsserver.setup({
   on_attach = on_attach,
   capabilities = capabilities,
+  filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
   commands = {
     OrganizeImports = {
       organize_imports,
@@ -52,6 +53,12 @@ lspconfig.gopls.setup({
       }
     }
   }
+})
+
+lspconfig.pyright.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "python" }
 })
 
 local servers = { "html", "cssls", "tailwindcss", "eslint" }

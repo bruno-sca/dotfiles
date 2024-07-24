@@ -3,12 +3,21 @@ local null_ls = require("null-ls")
 
 local opts = {
   sources = {
+    null_ls.builtins.formatting.stylua,
+
     null_ls.builtins.formatting.prettierd,
+    require("none-ls.formatting.eslint"),
+    require("none-ls.code_actions.eslint"),
+
     null_ls.builtins.formatting.gofumpt,
     null_ls.builtins.formatting.goimports,
     null_ls.builtins.formatting.golines,
+
+    null_ls.builtins.formatting.black,
+    null_ls.builtins.diagnostics.mypy,
+    null_ls.builtins.diagnostics.ruff
   },
-  on_attach = function (client, bufnr)
+  on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
       vim.api.nvim_clear_autocmds({
         group = augroup,
@@ -17,7 +26,7 @@ local opts = {
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = augroup,
         buffer = bufnr,
-        callback = function ()
+        callback = function()
           vim.lsp.buf.format({ bufnr = bufnr })
         end
       })
