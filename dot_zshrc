@@ -30,6 +30,7 @@ source $ZSH/oh-my-zsh.sh
 # spaceship config
 SPACESHIP_PROMPT_ORDER=(
   user          # Username section
+  venv
   dir           # Current directory section
   host          # Hostname section
   git           # Git section (git_branch + git_status)

@@ -5,6 +5,7 @@ local opts = {
   sources = {
     null_ls.builtins.formatting.stylua,
 
+    null_ls.builtins.diagnostics.eslint,
     null_ls.builtins.formatting.prettierd,
     require("none-ls.formatting.eslint"),
     require("none-ls.code_actions.eslint"),
